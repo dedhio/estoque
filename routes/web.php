@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/produtos', 'ProdutoController@lista');
+Route::get('/produtos/mostra', 'ProdutoController@mostra');
