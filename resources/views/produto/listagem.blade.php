@@ -1,6 +1,6 @@
-@extends('layout.principal')
-
+@extends('template.principal')
 @section('conteudo')
+
     @if(empty($produtos))
     <div class="alert alert-danger">
         Você não tem nenhum produto cadastrado.
@@ -15,8 +15,18 @@
             <td>{{ $p->descricao }}</td>
             <td>{{ $p->quantidade }}</td>
             <td>
-                <a href="/produtos/mostra/{{$p->id }}">
+                <a href="{{action('ProdutoController@mostra', $p->id)}}">
                     <span class="glyphicon glyphicon-search"></span>
+                </a>
+            </td>
+            <td>
+                <a href="{{action('ProdutoController@edita', $p->id)}}">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </td>
+            <td>
+                <a href="{{action('ProdutoController@remove', $p->id)}}">
+                    <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </td>
         </tr>
@@ -27,5 +37,12 @@
     <h4>
         <span class="label label-danger pull-right">Um ou menos itens no estoque</span>
     </h4>
+
+    @if(old('nome'))
+    <div class="alert alert-success">
+        <strong>Sucesso! </strong> O produto {{ old('nome') }} foi adicionado.
+    </div>
+    @endif
+
 
 @stop

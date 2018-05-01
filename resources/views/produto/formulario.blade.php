@@ -1,7 +1,11 @@
-@extends('layout.principal')
+@extends('template.principal')
 @section('conteudo')
+
     <h1>Novo produto</h1>
-    <form action="/produtos/adiciona">
+    <form action="{{ action('ProdutoController@adiciona'}}" method="post">
+
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
         <div class="form-group">
             <label>Nome</label>
             <input name="nome" class="form-control"/>
@@ -16,8 +20,8 @@
         </div>
         <div class="form-group">
             <label>Quantidade</label>
-            <input type="number" name="quantidade" class="form-control"/>
+            <input name="quantidade" class="form-control" type="number"/>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
     </form>
 @stop

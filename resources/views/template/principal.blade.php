@@ -15,8 +15,8 @@
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/produtos">Listagem</a></li>
-                <li><a href="/produtos/novo">Novo</a></li>
+                <li class="list-group list-group-item-action"><a href="{{ action('ProdutoController@lista') }}">Listagem</a></li>
+                <li class="list-group list-group-item-action"><a href="{{ action('ProdutoController@novo')  }}">Novo</a></li>
             </ul>
         </div>
     </nav>
